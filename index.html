@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeFAI Portfolio Pilot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'kaia-blue': '#1E3A8A',
+            'wave-teal': '#14B8A6',
+            'soft-gray': '#F3F4F6',
+            'slate': '#E5E7EB',
+            'charcoal': '#111827',
+            'emerald-green': '#10B981',
+            'rose-red': '#F43F5E',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-soft-gray text-charcoal min-h-screen p-6 font-sans">
+  <div class="max-w-2xl mx-auto">
+    <header class="text-kaia-blue text-4xl font-bold mb-4">
+      DeFAI Portfolio Pilot
+    </header>
+    <p class="text-slate mb-6">
+      Stake Kaia-native USDT and earn rewards through AI-powered missions.
+    </p>
+
+    <div class="bg-white p-4 rounded shadow-md">
+      <textarea
+        id="userInput"
+        class="w-full border p-2 mb-2"
+        placeholder="Ask the DeFAI bot..."
+      ></textarea>
+      <button
+        onclick="sendMessage()"
+        class="bg-wave-teal text-white px-4 py-2 rounded hover:bg-emerald-green"
+      >
+        Send
+      </button>
+      <div id="response" class="mt-4 text-emerald-green"></div>
+    </div>
+  </div>
+
+  <script>
+    async function sendMessage() {
+      const message = document.getElementById('userInput').value;
+      const responseBox = document.getElementById('response');
+      responseBox.textContent = 'Thinking...';
+
+      // Simulated response (replace with real API call)
+      setTimeout(() => {
+        responseBox.textContent = `You said: "${message}". AI will optimize your staking strategy soon!`;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
